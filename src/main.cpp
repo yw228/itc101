@@ -1,4 +1,4 @@
-#include "ybadge.h"
+ #include "ybadge.h"
 
 int main();
 int get_brightness();
@@ -16,7 +16,14 @@ int main() {
                 light_all_lights(255, 0, 0);
                 leds_set_brightness(get_brightness());
                 if (check_switches()) {
-                    speaker_play_note(NOTE_C4, 10);
+                    speaker_play_note(450, 100);
+                    light_all_lights(255, 0, 0);
+                    speaker_play_note(500, 100);
+                    light_all_lights(255, 255, 0);
+                    speaker_play_note(550, 100);
+                    speaker_play_note(600, 100);
+                    speaker_play_note(650, 100);
+
                 }
             }
         } else if (buttons_get(2)) {
@@ -24,7 +31,13 @@ int main() {
                 light_all_lights(255, 255, 0);
                 leds_set_brightness(get_brightness());
                 if (check_switches()) {
-                    speaker_play_note(NOTE_D4, 10);
+                    speaker_play_note(500, 100);
+                    speaker_play_note(2000, 100);
+                    light_all_lights(0, 0, 255);
+                    speaker_play_note(500, 100);
+                    light_all_lights(255, 0, 0);
+                    speaker_play_note(2000, 100);
+                    light_all_lights(0, 0, 255);
                 }
             }
         } else if (buttons_get(3)) {
@@ -32,7 +45,9 @@ int main() {
                 light_all_lights(0, 255, 0);
                 leds_set_brightness(get_brightness());
                 if (check_switches()) {
-                    speaker_play_note(NOTE_E4, 10);
+                    speaker_play_note(500, 100);
+                    speaker_play_note(726, 100);
+                    speaker_play_note(1000, 100);
                 }
             }
         } else {
@@ -58,6 +73,8 @@ void light_all_lights(int r, int g, int b) {
         leds_set_color(i, r, g, b);
     }
 }
+
+// 
 
 // This function turns off all of the LEDs
 void turn_off_all_lights() { light_all_lights(0, 0, 0); }
